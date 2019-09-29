@@ -1,0 +1,14 @@
+body{
+    background-color: rgb(53, 141, 241);
+}
+header{
+    text-align: center;
+    font-size: 30px;
+}
+nav{
+    text-align: center;
+}
+
+tr{
+    background-color: rgba(0, 0, 255, 0.315);
+}
