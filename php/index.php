@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,41 +12,84 @@
     <header>CDP-REGISTROS</header>
     <nav>INGRESOS Y SALIDAS </nav>
     <section>
+    <form action="index_conexion.php" method="POST">
         <fieldset>
             <legend>INGRESO DE DATOS</legend>
             <table>
                 <tr>
-                    <th>N°Ingreso <label for=""><input type="text" id="txt_Ningreso"></label></th>
-                    <th>Fecha <label for=""><input type="date" id="txt_fecha"></label></th>
-                    <th>Hora <label for=""><input type="text" id="txt_hora"></label></th>
-                    <th>Parte policial <label for=""><input type="text" id="txt_parteP"></label></th>
-                    <th>Nombres <label for=""><input type="text" id="txt_nombres"></label></th>
+                    <th>N°Ingreso <input type="text"  name="txt_Ningreso"></th>
+                    <th>Fecha  <input type="date"  name="txt_fecha"> </th>
+                    <th>Hora  <input type="time"  name="txt_hora"> </th>
+                    <th>Parte policial  <input type="text"  name="txt_parteP"> </th>
+                    <th>Nombres  <input type="text"  name="txt_nombres"> </th>
                 </tr>
                 <tr>
-                    <th>Apellidos <label for=""><input type="text" id="txt_apellidos"></label></th>
-                    <th>Sexo <label for=""><input type="text" id="txt_sexo"></label></th>
-                    <th>Cedula <label for=""><input type="text" id="txt_cedula"></label></th>
-                    <th>Nacionalidad <label for=""><input type="text" id="txt_nacionalidad"></label></th>
-                    <th>Causa investigacion <label for=""><input type="text" id="txt_causaIn"></label></th>
+                    <th>Apellidos  <input type="text"  name="txt_apellidos"> </th>
+                    <th>Sexo  <input type="text"  name="txt_sexo"> </th>
+                    <th>Cedula  <input type="text"  name="txt_cedula"> </th>
+                    <th>Nacionalidad  <input type="text"  name="txt_nacionalidad"> </th>
+                    <th>Causa investigacion  <input type="text"  name="txt_causaIn"> </th>
                 </tr>
                 <tr>
-                    <th>Lugar de detencion <label for=""><input type="text" id="txt_lugarD"></label></th>
-                    <th>Certificado medico <label for=""><input type="text" id="txt_certificadoM"></label></th>
-                    <th>Policia a cargo <label for=""><input type="text" id="txt_policiaA"></label></th>
-                    <th>Telefono <label for=""><input type="text" id="txt_telefono"></label></th>
-                    <th>ASP responsable <label for=""><input type="text" id="txt_aps"></label></th>
-                </tr>
-                <button type="submit">Actualizar</button>
+                    <th>Lugar de detencion  <input type="text"  name="txt_lugarD"> </th>
+                    <th>Certificado medico  <input type="text"  name="txt_certificadoM"> </th>
+                    <th>Policia a cargo  <input type="text"  name="txt_policiaA"> </th>
+                    <th>Telefono  <input type="text"  name="txt_telefono"> </th>
+                    <th>ASP responsable  <input type="text"  name="txt_aps"> </th>
+                </tr>                
             </table>
-            
+            <button type="submit">Actualizar</button> 
         </fieldset>
+        <hr>
         <fieldset>
             <legend>Datos</legend>
-            <table></table>
-        </fieldset>
-
-
-
+            <table>
+            <tr>
+            <th>N°Ingreso</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Parte Policial</th>
+            <th>Apellidos</th>
+            <th>Nombres</th>
+            <th>Sexo</th>
+            <th>Cedula</th>
+            <th>Nacionalidad</th>
+            <th>Causa Investigacion</th>
+            <th>Lugar Detencion</th>
+            <th>Certificado Medico</th>
+            <th>Policia Acargo</th>
+            <th>Telefono</th>
+            <th>ASP Responsable</th>
+            </tr>
+            <?php 
+             include ("../conexion/conexion.php");
+             $query= "SELECT * FROM ingresos";
+             $vista = $conexion->query($query);
+             while($row=$vista->fetch_assoc()){
+              ?>
+              <tr>
+              <td><?php echo $row['ing_Ncontrol']?></td>
+              <td><?php echo $row['ing_fecha']?></td>
+              <td><?php echo $row['ing_hora']?></td>
+              <td><?php echo $row['ing_parteP']?></td>
+              <td><?php echo $row['ing_apellidos']?></td>
+              <td><?php echo $row['ing_nombres']?></td>
+              <td><?php echo $row['ing_sexo']?></td>
+              <td><?php echo $row['ing_cedula']?></td>
+              <td><?php echo $row['ing_nacionalidad']?></td>
+              <td><?php echo $row['ing_causaIn']?></td>
+              <td><?php echo $row['ing_lugarD']?></td>
+              <td><?php echo $row['ing_certificadoM']?></td>
+              <td><?php echo $row['ing_policiaA']?></td>
+              <td><?php echo $row['ing_telefono']?></td>
+              <td><?php echo $row['ing_aspR']?></td>
+              </tr>
+              <?php   
+            }
+              ?>
+            </table>
+        </fieldset>        
+    </form>
     </section>
 </body>
 </html>
