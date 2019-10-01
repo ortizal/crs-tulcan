@@ -60,13 +60,14 @@
             <th>Policia Acargo</th>
             <th>Telefono</th>
             <th>ASP Responsable</th>
+            <th colspan ="2"> Operaciones</th>
             </tr>
             <?php 
              include ("../conexion/conexion.php");
              $query= "SELECT * FROM ingresos";
              $vista = $conexion->query($query);
              while($row=$vista->fetch_assoc()){
-              ?>
+            ?>
               <tr>
               <td><?php echo $row['ing_Ncontrol']?></td>
               <td><?php echo $row['ing_fecha']?></td>
@@ -83,6 +84,8 @@
               <td><?php echo $row['ing_policiaA']?></td>
               <td><?php echo $row['ing_telefono']?></td>
               <td><?php echo $row['ing_aspR']?></td>
+              <td><a href="modificar_cdp.php?id=<?php echo $row['ing_id']?>">M</a></td>
+              <td><a href="eliminar_cdp.php?id=<?php echo $row['ing_id']?>">E</a></td>
               </tr>
               <?php   
             }
