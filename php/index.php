@@ -38,7 +38,7 @@
                     <th>ASP responsable  <input type="text"  name="txt_aps"> </th>
                 </tr>                
             </table>
-            <button type="submit">Actualizar</button> 
+            <button type="submit">Guardar</button> 
         </fieldset>
         <hr>
         <fieldset>
